@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arabic-wsd-context-gloss"
+version = "0.1.0"
+description = "Data-quality utilities for Arabic verb context-gloss WSD experiments"
+requires-python = ">=3.10"
+dependencies = [
+  "openpyxl>=3.1",
+  "pandas>=2.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
