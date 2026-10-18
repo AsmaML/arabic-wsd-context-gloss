@@ -74,7 +74,12 @@ Adding more base models did not automatically improve the ensemble. The two-mode
 
 The `arabic_wsd.data_quality` module provides the first reusable part of the project. It standardizes the context–gloss schema, normalizes spacing, validates binary labels and reports duplicates or contradictory labels.
 
-The [dataset overview notebook](notebooks/01_dataset_overview.ipynb) introduces the task with annotated examples, then compares the initial and revised datasets through aggregate statistics and quality indicators.
+The notebooks follow the experimental workflow:
+
+1. [Dataset overview](notebooks/01_dataset_overview.ipynb): task definition, annotated examples, dataset lineage and quality indicators.
+2. [Data preparation](notebooks/02_data_preparation.ipynb): schema validation, label checks and the 80/10/10 split used for the ensemble experiments.
+3. [Base-model training](notebooks/03_train_base_models.ipynb): paired-sequence tokenization and fine-tuning of AraBERT, CAMeLBERT, ARBERTv2 and Arabic ALBERT.
+4. [Ensemble stacking](notebooks/04_ensemble_stacking.ipynb): generation of stacking features, logistic-regression ensembles and comparison of model combinations.
 
 ```python
 import pandas as pd
@@ -92,6 +97,14 @@ Install the project and run the tests with:
 python -m pip install -e .
 python -m unittest discover -s tests
 ```
+
+Install the optional training dependencies with:
+
+```bash
+python -m pip install -e ".[experiments]"
+```
+
+Training the four transformer models is intended for a CUDA-capable environment. Generated checkpoints and prediction artifacts are excluded from version control.
 
 ## Publications
 

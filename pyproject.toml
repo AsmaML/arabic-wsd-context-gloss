@@ -12,6 +12,17 @@ dependencies = [
   "pandas>=2.0",
 ]
 
+[project.optional-dependencies]
+experiments = [
+  "datasets>=2.18",
+  "evaluate>=0.4",
+  "jupyter>=1.0",
+  "numpy>=1.26",
+  "scikit-learn>=1.4",
+  "torch>=2.1",
+  "transformers>=4.38",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
